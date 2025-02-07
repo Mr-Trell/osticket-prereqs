@@ -5,38 +5,36 @@
 <h1>osTicket - Prerequisites and Installation</h1>
 This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.<br />
 
-
-
-
 <h2>Environments and Technologies Used</h2>
 
-- Microsoft Azure (Virtual Machines/Compute)
-- Microsoft Remote Desktop (RDP)
+- Microsoft Azure (Virtual Machines/Computer)
+- Remote Desktop
 - Internet Information Services (IIS)
 
 <h2>Operating Systems Used </h2>
 
-- Windows 10</b> 
+- Windows 10</b> (21H2)
 
 <h2>List of Prerequisites</h2>
 
-- Azure Virtual Machine
-- osTicket Installation files
-- Heidi SQL
+- IIS with CGI and Common HTTP Features
+- IIS Management Console
+- PHP Manager for IIS
+- Rewrite Modle
+- PHP 7.3.8
+- VC-redist.x86.exe
+- MySQL 5.5.62
+- osTicket
 
 <h2>Installation Steps</h2>
 
-<p>
-</p>
-<p>
-Welcome to my first in-depth IT tutorial! To begin we will have to create a Virtual machine using the Microsoft Azure portal(portal.azure.com). We will be using a VM(virtual machine) which is a remote computer. We are using a VM in order to protect our physical machine just in case something malfunctions, and also have a clean slate computer to continually replicate the lab on. Create a resource group and title it "osTicket". Afterwards create a VM with 2-4 CPUs. In this example I will be using 4 CPUs.
-  
- <img src="https://i.imgur.com/OPaIGoN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
-<p>
-</p>
-<p>Next simply connect to your newly created VM using RDP using the public IPv4 address. If you are a Mac user you will have to download Microsoft Remote Desktop(RDP). 
+<p>In Microsoft Azure, create a resource group, a Windows 10 Virtual Machine, and a Virtual Network (Vnet).</p>
+
+<img height="80%" width="80%" alt="Azure Virtual Machine" src="https://github.com/golayjustin/osticket-prereqs/assets/39071760/fd242b4b-8abc-4dad-bb17-6e36fdea9e34">
+&nbsp;
+&nbsp;
+
+<p>Next simply connect to your newly created VM using RDP using the public IPv4 address. If you are a Mac user you will have to download Microsoft RDP. 
 </p>
 <img src="https://i.imgur.com/uLVKzxS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -45,7 +43,7 @@ Welcome to my first in-depth IT tutorial! To begin we will have to create a Virt
 <p>
 </p>
 <p>
-Alright, now that you are connected to your VM you will have to enable IIS. Simply access the control panel then select uninstall a program. Off to the left select "Turn windows features on or off". A list will appear then you will enable Internet Information Services.
+Now that you are connected to your VM you will have to enable IIS. Simply access the control panel then select uninstall a program. Off to the left select "Turn windows features on or off". A list will appear then you will enable Internet Information Services.
 </p>  
 <img src="https://i.imgur.com/qtEnuWu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -107,3 +105,35 @@ Clean up
 Delete: C:\inetpub\wwwroot\osTicket\setup
 Set Permissions to “Read” only: C:\inetpub\wwwroot\osTicket\include\ost-config.php
 Login to the osTicket Admin Panel (http://localhost/osTicket/scp/login.php)
+<p>Resume set up in the browser by inputing required information.</p>
+<img height="80%" width="80%" alt="Input information into osTicket" src="https://i.imgur.com/7BiU7jq.png">
+&nbsp;
+&nbsp;
+
+<p>Download and install HeidiSQL and create a database called "osTicket".</p>
+<img height="80%" width="80%" alt="HeidiSQL" src="https://i.imgur.com/9ebN03I.png">
+&nbsp;
+&nbsp;
+
+<img height="80%" width="80%" alt="HeidiSQL" src="https://i.imgur.com/9PS1Evn.png">
+&nbsp;
+&nbsp;
+
+<p>Finish set up in the browser by entering MySQL Database as "osTicket". Select "Install now!"</p>
+<img height="80%" width="80%" alt="Finish osTicket setup" src="https://i.imgur.com/ZpEDdWr.png">
+&nbsp;
+&nbsp;
+
+<p>Both the help desk login page and end user web page are functioning.</p>
+<img height="80%" width="80%" alt="osTicket log in page" src="https://i.imgur.com/PdCBl1m.png">
+&nbsp;
+&nbsp;
+
+<img height="80%" width="80%" alt="osTicket end user web page" src="https://i.imgur.com/kCKiyBb.png">
+&nbsp;
+&nbsp;
+
+<p>Before moving on, delete C:\inetpub\wwwroot\osTicket\setup and set the permissions to "Read" on ost-config file.</p>
+<img height="80%" width="80%" alt="Set ost-config to read only" src="https://i.imgur.com/8pW1JCB.png">
+&nbsp;
+&nbsp;
